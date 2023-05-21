@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_habit_tracker/components/habit_tile.dart';
 import 'package:flutter_habit_tracker/components/my_fab.dart';
-import 'package:flutter_habit_tracker/components/new_habit_box.dart';
+import 'package:flutter_habit_tracker/components/my_alert_box.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -33,10 +33,11 @@ class _HomePageState extends State<HomePage> {
     showDialog(
       context: context,
       builder: (context) {
-        return EnterNewHabitBox(
+        return MyAlertBox(
           controller: _newHabitNameController,
+          hintText: 'Enter new Habit name',
           onSave: saveNewHabit,
-          onCancel: cancelNewHabit,
+          onCancel: cancelDialogBox,
         );
       },
     );
@@ -57,12 +58,43 @@ class _HomePageState extends State<HomePage> {
   }
 
   // Function for cancelling a new habit
-  void cancelNewHabit() {
+  void cancelDialogBox() {
     // Clearing the textfield
     _newHabitNameController.clear();
 
     // Pop the dialog box
     Navigator.of(context).pop();
+  }
+
+  // Open habit settings to edit it
+  void openHabitSettings(int index) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return MyAlertBox(
+          controller: _newHabitNameController,
+          hintText: todayHabitList[index][0],
+          onSave: () => saveExistingHabit(index),
+          onCancel: cancelDialogBox,
+        );
+      },
+    );
+  }
+
+  // Save existing habit with a new name
+  void saveExistingHabit(int index) {
+    setState(() {
+      todayHabitList[index][0] = _newHabitNameController.text;
+    });
+    _newHabitNameController.clear();
+    Navigator.pop(context);
+  }
+
+  // Delete habit
+  void deleteHabit(int index) {
+    setState(() {
+      todayHabitList.removeAt(index);
+    });
   }
 
   @override
@@ -76,9 +108,12 @@ class _HomePageState extends State<HomePage> {
         itemCount: todayHabitList.length,
         itemBuilder: (context, index) {
           return HabitTile(
-              habitName: todayHabitList[index][0],
-              habitCompleted: todayHabitList[index][1],
-              onChanged: (value) => checkBoxTapped(value, index));
+            habitName: todayHabitList[index][0],
+            habitCompleted: todayHabitList[index][1],
+            onChanged: (value) => checkBoxTapped(value, index),
+            settingsTapped: (context) => openHabitSettings(index),
+            deleteTapped: (context) => deleteHabit(index),
+          );
         },
       ),
     );
