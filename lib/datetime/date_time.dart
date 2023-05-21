@@ -34,7 +34,7 @@ DateTime createDateTimeObject(String yyyymmdd) {
 }
 
 // Convert DateTime object to string yyyymmdd
-String convertDateTimeString(DateTime dateTime) {
+String convertDateTimeToString(DateTime dateTime) {
   // Year in the format yyyy
   String year = dateTime.year.toString();
 
