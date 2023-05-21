@@ -57,6 +57,7 @@ class HabitTile extends StatelessWidget {
 
               // Habit Name
               Expanded(child: Text(habitName)),
+              //Text(habitName),
 
               // Back arrow
               Icon(Icons.arrow_back, color: Colors.grey[600]),
