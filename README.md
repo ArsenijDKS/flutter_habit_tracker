@@ -12,7 +12,7 @@ ____
 
 ## Technologies & Languages
 
-<img src="img\Flutter_logo.png" width=8% height=8% alt="flutter"> <img src="img\Dart_logo.png" width=8% height=8% alt="flutter"> <img src="img\Hive_logo.png" width=8% height=8% alt="flutter"> 
+<img src="img\Flutter_logo.png" width=12% height=12% alt="flutter"> <img src="img\Dart_logo.png" width=12% height=12% alt="flutter"> <img src="img\Hive_logo.png" width=12% height=12% alt="flutter"> 
 </div>
 
 ____
