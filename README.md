@@ -19,4 +19,4 @@ ____
 
 ## Screenshots & Video 
 
-<img src="img\Screenshot_1.png" width=20% height=20% alt="Screenshot_1"> <img src="img\Screenshot_2.png" width=20% height=20% alt="Screenshot_1"> <img src="img\Weather_record.gif" width=20% height=20% alt="Weather_record">
+<img src="img\Screenshot_2.png" width=20% height=20% alt="Screenshot_2"> <img src="img\Screenshot_3.png" width=20% height=20% alt="Screenshot_3"> <img src="img\Habit_tracker_video.gif" width=20% height=20% alt="Habit_tracker_video">
